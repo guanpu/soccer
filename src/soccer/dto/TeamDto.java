@@ -10,7 +10,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
 
 /**
- *
+ * DTO object that wraps values of a team to form a classifier
+ * compliant "instance".
  * @author pguan
  */
 public class TeamDto {

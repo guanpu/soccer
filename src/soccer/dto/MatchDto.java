@@ -13,7 +13,7 @@ import javax.persistence.Query;
 import soccer.entity.Matches;
 
 /**
- *
+ * DTO object that wraps values of a match to form a classifier compliant "instance".
  * @author pguan
  */
 public class MatchDto {

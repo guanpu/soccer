@@ -6,7 +6,7 @@
 package soccer;
 
 /**
- *
+ * The container of the so called 'instances'.
  * @author pguan
  */
 public class DataSet {

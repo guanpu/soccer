@@ -11,7 +11,8 @@ import javax.persistence.PersistenceUnit;
 import soccer.entity.PlayerAttributes;
 
 /**
- *
+ * DTO object that wraps values of a match to form a classifier
+ * compliant "instance".
  * @author pguan
  */
 public class PlayerDto {
