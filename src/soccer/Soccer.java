@@ -14,11 +14,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * The main project.
  * @author pguan
  */
 public class Soccer {
-    public static final String SQLITE_URL="jdbc:sqlite:D:/BackUp/soccer/database.sqlite";
+    public static final String SQLITE_URL="jdbc:sqlite:F:/backup/database.sqlite";
     /**
      * @param args the command line arguments
      */

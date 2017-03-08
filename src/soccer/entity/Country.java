@@ -5,51 +5,83 @@
  */
 package soccer.entity;
 
+import java.io.Serializable;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  *
  * @author pguan
  */
-public class Country {
-    
-    private String id;
-    
+@Entity
+@Table(name = "country")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "Country.findAll", query = "SELECT c FROM Country c"),
+    @NamedQuery(name = "Country.findById", query = "SELECT c FROM Country c WHERE c.id = :id"),
+    @NamedQuery(name = "Country.findByName", query = "SELECT c FROM Country c WHERE c.name = :name")})
+public class Country implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "name")
     private String name;
 
-    /**
-     * Get the value of name
-     *
-     * @return the value of name
-     */
+    public Country() {
+    }
+
+    public Country(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
 
-    /**
-     * Set the value of name
-     *
-     * @param name new value of name
-     */
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     * Get the value of id
-     *
-     * @return the value of id
-     */
-    public String getId() {
-        return id;
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
     }
 
-    /**
-     * Set the value of id
-     *
-     * @param id new value of id
-     */
-    public void setId(String id) {
-        this.id = id;
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Country)) {
+            return false;
+        }
+        Country other = (Country) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
     }
 
+    @Override
+    public String toString() {
+        return "soccer.stage.entity.Country[ id=" + id + " ]";
+    }
     
 }

@@ -1,0 +1,11 @@
+{
+  "name": "fetcher",
+  "version": "0.0.0",
+  "description": "fetch match information",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Guan Pu",
+  "license": "MIT"
+}
