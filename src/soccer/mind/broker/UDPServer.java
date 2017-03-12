@@ -14,7 +14,7 @@ import java.net.SocketException;
  *
  * @author pguan
  */
-public class UDPServer {
+public class UDPServer implements Runnable{
 
     public UDPServer() throws SocketException {
         this.s = new DatagramSocket(20000);
@@ -23,7 +23,7 @@ public class UDPServer {
     
     private boolean flag;
     private DatagramSocket s;
-    public void listen() {
+    public void run() {
         try {
             byte[] buf = new byte[256];
             DatagramPacket p = new DatagramPacket(buf, 256);
@@ -43,10 +43,5 @@ public class UDPServer {
     public void stop() {
         this.flag = false;
     }
-    
-    public static void main(String[] args) throws SocketException {
-        UDPServer server = new UDPServer();
-        server.listen();
-    }
-    
+
 }
