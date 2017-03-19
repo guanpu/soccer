@@ -25,3 +25,12 @@ Architecture:
 3. A nodejs communication module to trigger betting strategy
 4. A Java messaging module to notify the customer(subscriber)
 5. A java betting strategy module with self-improve feature
+
+Recent TODO:
+
+1. Get lineup from http://www.teamfeed.co.uk, leverage cheerio to fetch the lineups before match.
+2. Unify team name and player name between several datasource, problems might include:
+
++ remove attribute like "FC" in the team name
++ double valid name like 'athletic-club' vs 'athletic-bioble', need to manually check and repair this.
++ comparing with latin characters against English characters, like ...
