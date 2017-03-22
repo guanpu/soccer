@@ -6,31 +6,23 @@ const dgram = require("dgram");
 const client = dgram.createSocket('udp4');
 const SERVER_PORT = require("../config/config.json").peer.port;
 var process = require("process");
-var log4js = require('log4js');
-var logger;
+const logger = require("../config/logger").logger;
 
-if(process.env.PRO_SOCCER) {
-    log4js.configure("./config/log4js-config");
-    logger = log4js.getLogger("production");
-} else {
-    logger = log4js.getLogger();
-}
-
-function reportMatch(string) {
+function report(string) {
     client.send(string, SERVER_PORT,"localhost", function(){
-        logger.info(string + " has being send");
+        logger.info("successfully sent");
     });
 }
-function reportResult(string) {
-    client.send(string, SERVER_PORT, "localhost",function(){
-        logger.info(string + " has being send");
-    });    
-}
+
 function terminate() {
     client.close();
 }
-module.exports = {
-    reportMatch: reportMatch,
-    reportResult: reportResult,
-    terminate: terminate
-};
+
+process.on("message", (message)=>{
+    if (message.eventType) {
+        let toBroadcast = JSON.stringify(data);
+        report(toBroadcast);
+    } else {
+        terminate();
+    }
+});

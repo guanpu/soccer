@@ -19,22 +19,12 @@
  }
  ]
  */
-const udpServer = require("./udpServer");
 const https = require("https");
 const url = require("url");
 const config = require("../config/config.json").resource.odd;
 const parser = require("../parser/odd_parser");
 const _ = require("underscore");
-var process = require("process");
-var log4js = require('log4js');
-var logger;
-
-if(process.env.PRO_SOCCER) {
-    log4js.configure("./config/log4js-config");
-    logger = log4js.getLogger("production");
-} else {
-    logger = log4js.getLogger();
-}
+const logger = require("../config/logger").logger;
 
 //set authentication header
 var header = {"Accept": "application/json"};
@@ -44,9 +34,12 @@ var baseOptions = {
     hostname: config.hostname,
 };
 
+/**
+ * Get the upcoming matches which belong to the leagues I get interest on.
+ * @returns {Promise}
+ */
 function getUpcoming() {
     var promise = new Promise(function(resolve,rej){
-
         /**
          * since it use get() insteadOf request() that avoid manually
          * call req.end(), before reject this promise, we have to manually
@@ -81,6 +74,12 @@ function getUpcoming() {
     });
     return promise;
 }
+
+/**
+ * Taking an array of matches as input, output the array of odds as a promise.
+ * @param data
+ * @returns {Promise.<*>}
+ */
 function getBetLines(data) {
     let promises = [];
     _.each(data,function(item){
@@ -103,7 +102,6 @@ function getBetLines(data) {
                     let matches = parser.mergeOdds(parsedData);
                     let wrapMatchData = {
                         "matchId": item.matchId,
-                        "eventType": 1,
                         "data": matches
                     };
                     resolve(wrapMatchData);
@@ -120,30 +118,15 @@ function getBetLines(data) {
     return Promise.all(promises);
 }
 
-function errorResolver(e) {
-    logger.warn(e);
-    return;
-}
-
-function emit(data) {
-    let toBroadcast = JSON.stringify(data);
-    udpServer.reportMatch(toBroadcast);
-    /**
-     * TODO: nodejs won't stop if don't manually terminate udp server, this is a workaround
-     * temporarily used in test, later need to find a way to re-use udpServer in a concurrent manner.
-     */
-    setTimeout(function(){udpServer.terminate();},10000);
-}
-
 /**
  * TODO: Make it real singleton, i.e. can only run once if other instance not finished.
  */
-function runOnce() {
-    getUpcoming().then(getBetLines).then(emit).catch(errorResolver);
+function getUpcomingBetlines() {
+    return getUpcoming().then(getBetLines);
 }
- module.exports = {
-   runOnce: runOnce
- };
+module.exports = {
+ getUpcomingBetlines: getUpcomingBetlines
+};
 
 
 
