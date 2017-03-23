@@ -32,6 +32,7 @@ header[config.auth_key] = config.auth_value;
 var baseOptions = {
     headers: header,
     hostname: config.hostname,
+    timeout: 30*1000
 };
 
 /**
@@ -82,6 +83,9 @@ function getUpcoming() {
  */
 function getBetLines(data) {
     let promises = [];
+    if(!_.isArray(data)) {
+        throw new Error("Invalid data format for upcoming matches");
+    }
     _.each(data,function(item){
         let p = new Promise(function(resolve,reject){
             https.get(_.extend(baseOptions,{"path": "/matches/"+item.matchId}),(res)=>{
@@ -119,13 +123,17 @@ function getBetLines(data) {
 }
 
 /**
- * TODO: Make it real singleton, i.e. can only run once if other instance not finished.
+ * Reject when the interested match is not returned
+ * @param matchId
  */
-function getUpcomingBetlines() {
-    return getUpcoming().then(getBetLines);
+function getResult(matchId) {
+
 }
+
 module.exports = {
- getUpcomingBetlines: getUpcomingBetlines
+    getUpcoming: getUpcoming,
+    getBetLines: getBetLines,
+    getResult: getResult
 };
 
 
