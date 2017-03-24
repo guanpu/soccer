@@ -7,10 +7,7 @@
             "leagues": [2,7,9,10,26]
 
         },
-        "lineup": {
-            "url": "http://www.teamfeed.co.uk/lineups/",
-            "parser": "lineup_parser"
-        }
+        "lineup": "http://www.teamfeed.co.uk/lineups/"
     },
     "peer": {
         "port": 20000

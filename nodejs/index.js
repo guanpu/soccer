@@ -23,7 +23,7 @@ function fetchOdd() {
 function fetchLineup(match) {
     lineupFetcher.getLineUp(match.homeTeam, match.awayTeam,match.tstamp).then((resultLineUp)=>{
         emit(2,resultLineUp);
-        removeResultSchedule(match.matchId);
+        removeLineupSchedule(match.matchId);
     }).catch((e)=>{
         logger.info(`No confirmed lineup data found for the specific match ${e.message}, will try later`);
     });
@@ -160,4 +160,4 @@ process.on("uncaughtException", (err)=>{
     worker.send("terminate");
     logger.WARN(err);
 });
-run();
+// run();

@@ -49,7 +49,7 @@ function getUpcoming() {
          */
         https.get(_.extend(baseOptions,{"path": "/upcoming"}),(res)=>{
             const statusCode = res.statusCode;
-            if(statusCode!==200&&statusCode!==304) {
+            if(statusCode!==200 && statusCode!==304) {
                 let error = new Error(`Request Failed with status ${codestatusCode}`);
                 //noinspection JSUnresolvedFunction
                 res.resume();
@@ -127,7 +127,31 @@ function getBetLines(data) {
  * @param matchId
  */
 function getResult(matchId) {
-
+    return new Promise(function(resolve,reject){
+        https.get(_.extend(baseOptions,{"path": "/results/"+item.matchId}),(res)=>{
+            const statusCode = res.statusCode;
+            if(statusCode!==200 && statusCode!==304) {
+                let error = new Error(`Request Failed with status code ${statusCode} when fetch ${item.matchId}`);
+                res.resume();
+                reject(error);
+            }
+            res.setEncoding("utf8");
+            let rawData = '';
+            res.on("data", (chunk)=>{
+                rawData += chunk;
+            });
+            res.on("end", ()=>{
+                try{
+                    let parsedData = JSON.parse(rawData);
+                    resolve(parsedData);
+                }catch(e) {
+                    reject(e);
+                }
+            });
+        }).on("error",(e)=>{
+            reject(e);
+        });
+    });
 }
 
 module.exports = {
