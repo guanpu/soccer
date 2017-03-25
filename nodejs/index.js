@@ -23,9 +23,11 @@ function fetchOdd() {
 function fetchLineup(match) {
     lineupFetcher.getLineUp(match.homeTeam, match.awayTeam,match.tstamp).then((resultLineUp)=>{
         emit(2,resultLineUp);
-        removeLineupSchedule(match.matchId);
+        setTimeout(()=>{worker.send("terminate");},5000);
+        //TODO: uncomment this when test over
+        //removeLineupSchedule(match.matchId);
     }).catch((e)=>{
-        logger.info(`No confirmed lineup data found for the specific match ${e.message}, will try later`);
+        logger.info(`No confirmed lineup data found for the specific match ${match.matchId}, will try later`);
     });
 }
 
@@ -160,4 +162,13 @@ process.on("uncaughtException", (err)=>{
     worker.send("terminate");
     logger.WARN(err);
 });
+process.on("exit",()=>{
+   console.log("Main closing");
+});
 // run();
+fetchLineup({
+   homeTeam: "excelsior",
+   awayTeam: "ajax",
+    tstamp: 1489930200,
+    matchId: 12
+});

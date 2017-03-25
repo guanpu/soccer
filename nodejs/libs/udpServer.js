@@ -5,7 +5,6 @@
 const dgram = require("dgram");
 const client = dgram.createSocket('udp4');
 const SERVER_PORT = require("../config/config.json").peer.port;
-var process = require("process");
 const logger = require("../config/logger").logger;
 
 function report(string) {
@@ -15,14 +14,20 @@ function report(string) {
 }
 
 function terminate() {
+    logger.info("aboutToClose");
     client.close();
+    process.disconnect();
 }
 
 process.on("message", (message)=>{
     if (message.eventType) {
-        let toBroadcast = JSON.stringify(data);
+        let toBroadcast = JSON.stringify(message);
+        logger.info(toBroadcast);
         report(toBroadcast);
     } else {
         terminate();
     }
+});
+process.on("exit",()=>{
+    console.log("Child closeing");
 });

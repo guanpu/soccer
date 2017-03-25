@@ -5,6 +5,7 @@ const util = require("../parser/utils");
 const cheerio = require("cheerio");
 const http = require("http");
 const config = require("../config/config.json").resource.lineup;
+const teamName = require("../config/lineup_team_names.json");
 
 /**
  * Reject that if the lineup is not confirmed.
@@ -38,7 +39,7 @@ function getLineUp(homeTeam, awayTeam, dueDate) {
                     let awayPlayers = [];
                     //pickup the right div
                     let theDiv = $("div.pagination").next("div");
-                    if (theDiv.find("h2>a").text().indexOf(awayName) > 0 && theDiv.find("h2>span").text() == "Confirmed") {
+                    if (theDiv.find("h2>a").text().indexOf(teamName[awayName]) > 0 && theDiv.find("h2 span").text() == "Confirmed") {
                         if (theDiv.find("div.pitch-header").text().indexOf(str) > 0) {
                             theDiv.find("div.home").children().each(function (index, element) {
                                 let player = {
@@ -59,7 +60,6 @@ function getLineUp(homeTeam, awayTeam, dueDate) {
                                 awayPlayers: awayPlayers
                             });
                         }
-                        rej(new Error("Not found the correct match"));
                     }
                     rej(new Error("Not found the correct match"));
                 } catch (e) {

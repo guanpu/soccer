@@ -3,6 +3,7 @@
  */
 const validName = /[\-\w\s]/g;
 const _ = require("underscore");
+//TODO:  name like "Lasse Schone" still not comparing to "Lasse Schoene"
 /**
  * Normalize the special charactors from latin names.
  * @param str
@@ -14,6 +15,7 @@ function normalizeName(str) {
     }
     return "";
 }
+
 /**
  * teamfeed uses a special format for date, this method aims to return date string like "12. March 2017".
  * @param date A Date Object
