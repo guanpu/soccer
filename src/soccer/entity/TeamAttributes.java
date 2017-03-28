@@ -32,7 +32,7 @@ public class TeamAttributes implements Serializable {
     @Column(name = "team_api_id")
     private Long teamApiId;
     @Column(name = "date")
-    private String date;
+    private String matchdate;
     @Column(name = "buildupplayspeed")
     private Long buildupplayspeed;
     @Column(name = "buildupplayspeedclass")
@@ -107,12 +107,12 @@ public class TeamAttributes implements Serializable {
         this.teamApiId = teamApiId;
     }
 
-    public String getDate() {
-        return date;
+    public String getMatchdate() {
+        return matchdate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setMatchdate(String matchdate) {
+        this.matchdate = matchdate;
     }
 
     public Long getBuildupplayspeed() {

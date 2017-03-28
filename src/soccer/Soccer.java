@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,7 +19,7 @@ import java.util.logging.Logger;
  * @author pguan
  */
 public class Soccer {
-    public static final String SQLITE_URL="jdbc:sqlite:F:/backup/database.sqlite";
+    public static final String SQLITE_URL="jdbc:sqlite:/installed/originaldata/database.sqlite";
     /**
      * @param args the command line arguments
      */
@@ -30,7 +31,10 @@ public class Soccer {
             Connection conn = DriverManager.getConnection(SQLITE_URL);
             try {
                 Statement statement = conn.createStatement();
-                ResultSet resultSet = statement.executeQuery("select count(1) from Match");
+                Map<String, Class<?>> map = conn.getTypeMap();
+                System.out.println(map.toString());
+                ResultSet resultSet = statement.executeQuery("select * from Match");
+                
                 System.out.printf("there's %d records", resultSet.getInt(1));
             } catch (SQLException ex) {
                 Logger.getLogger(Soccer.class.getName()).log(Level.SEVERE, null, ex);

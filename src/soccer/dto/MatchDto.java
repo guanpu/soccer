@@ -5,10 +5,12 @@
  */
 package soccer.dto;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceUnit;
+import javax.persistence.Persistence;
 import javax.persistence.Query;
 import soccer.entity.Matches;
 
@@ -17,8 +19,8 @@ import soccer.entity.Matches;
  * @author pguan
  */
 public class MatchDto {
-    @PersistenceUnit(unitName = "soccerPU")
-    private EntityManagerFactory emf;
+//    @PersistenceUnit(unitName = "soccerPU") no JEE container, thus can't use this
+    private EntityManagerFactory emf=Persistence.createEntityManagerFactory("soccerPU");
     private final EntityManager em;
     private final String query;
     public MatchDto(String query) {
@@ -31,6 +33,7 @@ public class MatchDto {
      * @return 
      */
     public double[] getBetInstance() {
+        return null;
         
     }
     
@@ -39,7 +42,7 @@ public class MatchDto {
      * @return 
      */
     public double[] getPerSeInstance() {
-        
+        return null;
     }
     
     private List<Matches> getMatches() {
@@ -61,9 +64,30 @@ public class MatchDto {
          */
         double[] factors = new double[10];
         
+        
+        return factors;
     }
     
     private double[] formatBetIntoFactors() {
+        return null;        
+    }
+    
+    /**
+     * The test method of this DTO.
+     * @param args 
+     */
+    public static void main(String[] args) {
+        /**
+         * Use this code snippet to manually generate sql.
+         */
+//        Map properties = new HashMap();
+//        properties.put("javax.persistence.schema-generation.scripts.action", "create");
+//        properties.put("javax.persistence.schema-generation.scripts.create-target", "create-schema.sql");
+//
+//        Persistence.generateSchema("soccerPU", properties);
+        MatchDto dto  = new MatchDto("SELECT t FROM Matches t");
+        List<Matches> list = dto.getMatches();
+        System.out.printf("%d \n", list.size());
         
     }
     

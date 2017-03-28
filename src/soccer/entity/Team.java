@@ -118,7 +118,7 @@ public class Team implements Serializable {
         List<TeamAttributes> attrs = getTeamFifaApiId();
         for (Iterator<TeamAttributes> iterator = attrs.iterator(); iterator.hasNext();) {
             TeamAttributes next = iterator.next();
-            if(next.getDate().equals(date)) {
+            if(next.getMatchdate().equals(date)) {
                 return next;
             }            
         }
