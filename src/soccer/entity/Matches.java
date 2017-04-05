@@ -25,7 +25,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Matches implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @Column(name = "id")
@@ -224,7 +223,7 @@ public class Matches implements Serializable {
     @Column(name = "card")
     private String card;
     @Lob
-    @Column(name = "crosspass")
+    @Column(name = "cross")
     private String crosspass;
     @Lob
     @Column(name = "corner")
