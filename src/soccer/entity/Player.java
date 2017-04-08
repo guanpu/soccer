@@ -6,14 +6,10 @@
 package soccer.entity;
 
 import java.io.Serializable;
-import java.util.Iterator;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -34,9 +30,8 @@ public class Player implements Serializable {
     private Long playerApiId;
     @Column(name = "player_name")
     private String playerName;
-    @OneToMany
-    @JoinColumn(name = "player_fifa_api_id")
-    private List<PlayerAttributes> playerFifaApiId;
+    @Column(name = "player_fifa_api_id")
+    private Long playerFifaApiId;
     @Column(name = "birthday")
     private String birthday;
     @Column(name = "height")
@@ -75,14 +70,14 @@ public class Player implements Serializable {
         this.playerName = playerName;
     }
 
-    public List<PlayerAttributes> getPlayerFifaApiId() {
+    public Long getPlayerFifaApiId() {
         return playerFifaApiId;
     }
 
-    public void setPlayerFifaApiId(List<PlayerAttributes> playerFifaApiId) {
+    public void setPlayerFifaApiId(Long playerFifaApiId) {
         this.playerFifaApiId = playerFifaApiId;
     }
-
+    
     public String getBirthday() {
         return birthday;
     }
@@ -133,13 +128,13 @@ public class Player implements Serializable {
     }
     
     public PlayerAttributes getAttributes(String date) {
-        List<PlayerAttributes> attrs = getPlayerFifaApiId();
-        for (Iterator<PlayerAttributes> iterator = attrs.iterator(); iterator.hasNext();) {
-            PlayerAttributes next = iterator.next();
-            if(next.getDate().equals(date)) {
-                return next;
-            }
-        }
+//        List<PlayerAttributes> attrs = getPlayerFifaApiId();
+//        for (Iterator<PlayerAttributes> iterator = attrs.iterator(); iterator.hasNext();) {
+//            PlayerAttributes next = iterator.next();
+//            if(next.getDate().equals(date)) {
+//                return next;
+//            }
+//        }
         return null;        
     }    
 }

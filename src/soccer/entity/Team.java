@@ -6,7 +6,6 @@
 package soccer.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import javax.persistence.Basic;
@@ -33,9 +32,8 @@ public class Team implements Serializable {
     private Long id;
     @Column(name = "team_api_id")
     private Long teamApiId;
-    @OneToMany
-    @JoinColumn(name = "team_fifa_api_id")
-    private List<TeamAttributes> teamFifaApiId;
+    @Column(name = "team_fifa_api_id")
+    private Long teamFifaApiId;
     @Column(name = "team_long_name")
     private String teamLongName;
     @Column(name = "team_short_name")
@@ -64,11 +62,11 @@ public class Team implements Serializable {
         this.teamApiId = teamApiId;
     }
 
-    public List<TeamAttributes> getTeamFifaApiId() {
+    public Long getTeamFifaApiId() {
         return teamFifaApiId;
     }
 
-    public void setTeamFifaApiId(List<TeamAttributes> teamFifaApiId) {
+    public void setTeamFifaApiId(Long teamFifaApiId) {
         this.teamFifaApiId = teamFifaApiId;
     }
 
@@ -113,14 +111,14 @@ public class Team implements Serializable {
         return "soccer.stage.entity.Team[ id=" + id + " ]";
     }
     
-    public TeamAttributes getAttributes(String date) {
-        List<TeamAttributes> attrs = getTeamFifaApiId();
-        for (Iterator<TeamAttributes> iterator = attrs.iterator(); iterator.hasNext();) {
-            TeamAttributes next = iterator.next();
-            if(next.getMatchdate().equals(date)) {
-                return next;
-            }            
-        }
+    public TeamAttributes getAttributes() {
+//        List<TeamAttributes> attrs = getTeamFifaApiId();
+//        for (Iterator<TeamAttributes> iterator = attrs.iterator(); iterator.hasNext();) {
+//            TeamAttributes next = iterator.next();
+//            if(next.getMatchdate().equals(date)) {
+//                return next;
+//            }            
+//        }
         return null;
     }
 }

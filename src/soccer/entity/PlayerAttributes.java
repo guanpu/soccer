@@ -30,8 +30,8 @@ public class PlayerAttributes implements Serializable {
     private Long playerFifaApiId;
     @Column(name = "player_api_id")
     private Long playerApiId;
-    @Column(name = "date")
-    private String date;
+    @Column(name = "player_date")
+    private String playerDate;
     @Column(name = "overall_rating")
     private Long overallRating;
     @Column(name = "potential")
@@ -140,14 +140,14 @@ public class PlayerAttributes implements Serializable {
         this.playerApiId = playerApiId;
     }
 
-    public String getDate() {
-        return date;
+    public String getPlayerDate() {
+        return playerDate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setPlayerDate(String playerDate) {
+        this.playerDate = playerDate;
     }
-
+    
     public Long getOverallRating() {
         return overallRating;
     }

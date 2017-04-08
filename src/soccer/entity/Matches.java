@@ -10,7 +10,7 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -29,26 +29,22 @@ public class Matches implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
-    @OneToOne
-    @JoinColumn(name = "country_id")
-    private Country countryId;
-    @OneToOne
-    @JoinColumn(name = "league_id")
-    private League leagueId;
+    @Column(name = "country_id")
+    private Long countryId;
+    @Column(name = "league_id")
+    private Long leagueId;
     @Column(name = "season")
     private String season;
     @Column(name = "stage")
     private Integer stage;
-    @Column(name = "date")
-    private String date;
+    @Column(name = "match_date")
+    private String matchDate;
     @Column(name = "match_api_id")
     private Integer matchApiId;
-    @OneToOne
-    @JoinColumn(name = "home_team_api_id")
-    private Team homeTeamApiId;
-    @OneToOne
-    @JoinColumn(name = "away_team_api_id")
-    private Team awayTeamApiId;
+    @Column(name = "home_team_api_id")
+    private Long homeTeamApiId;
+    @Column(name = "away_team_api_id")
+    private Long awayTeamApiId;
     @Column(name = "home_team_goal")
     private Integer homeTeamGoal;
     @Column(name = "away_team_goal")
@@ -141,72 +137,50 @@ public class Matches implements Serializable {
     private Integer awayplayerY10;
     @Column(name = "away_player_Y11")
     private Integer awayplayerY11;
-    @OneToOne
-    @JoinColumn(name = "home_player_1")
-    private Player homePlayer1;
-    @OneToOne
-    @JoinColumn(name = "home_player_2")
-    private Player homePlayer2;
-    @OneToOne
-    @JoinColumn(name = "home_player_3")
-    private Player homePlayer3;
-    @OneToOne
-    @JoinColumn(name = "home_player_4")
-    private Player homePlayer4;
-    @OneToOne
-    @JoinColumn(name = "home_player_5")
-    private Player homePlayer5;
-    @OneToOne
-    @JoinColumn(name = "home_player_6")
-    private Player homePlayer6;
-    @OneToOne
-    @JoinColumn(name = "home_player_7")
-    private Player homePlayer7;
-    @OneToOne
-    @JoinColumn(name = "home_player_8")
-    private Player homePlayer8;
-    @OneToOne
-    @JoinColumn(name = "home_player_9")
-    private Player homePlayer9;
-    @OneToOne
-    @JoinColumn(name = "home_player_10")
-    private Player homePlayer10;
-    @OneToOne
-    @JoinColumn(name = "home_player_11")
-    private Player homePlayer11;
-    @OneToOne
-    @JoinColumn(name = "away_player_1")
-    private Player awayPlayer1;
-    @OneToOne
-    @JoinColumn(name = "away_player_2")
-    private Player awayPlayer2;
-    @OneToOne
-    @JoinColumn(name = "away_player_3")
-    private Player awayPlayer3;
-    @OneToOne
-    @JoinColumn(name = "away_player_4")
-    private Player awayPlayer4;
-    @OneToOne
-    @JoinColumn(name = "away_player_5")
-    private Player awayPlayer5;
-    @OneToOne
-    @JoinColumn(name = "away_player_6")
-    private Player awayPlayer6;
-    @OneToOne
-    @JoinColumn(name = "away_player_7")
-    private Player awayPlayer7;
-    @OneToOne
-    @JoinColumn(name = "away_player_8")
-    private Player awayPlayer8;
-    @OneToOne
-    @JoinColumn(name = "away_player_9")
-    private Player awayPlayer9;
-    @OneToOne
-    @JoinColumn(name = "away_player_10")
-    private Player awayPlayer10;
-    @OneToOne
-    @JoinColumn(name = "away_player_11")
-    private Player awayPlayer11;
+    @Column(name = "home_player_1")
+    private Long homePlayer1;
+    @Column(name = "home_player_2")
+    private Long homePlayer2;
+    @Column(name = "home_player_3")
+    private Long homePlayer3;
+    @Column(name = "home_player_4")
+    private Long homePlayer4;
+    @Column(name = "home_player_5")
+    private Long homePlayer5;
+    @Column(name = "home_player_6")
+    private Long homePlayer6;
+    @Column(name = "home_player_7")
+    private Long homePlayer7;
+    @Column(name = "home_player_8")
+    private Long homePlayer8;
+    @Column(name = "home_player_9")
+    private Long homePlayer9;
+    @Column(name = "home_player_10")
+    private Long homePlayer10;
+    @Column(name = "home_player_11")
+    private Long homePlayer11;
+    @Column(name = "away_player_1")
+    private Long awayPlayer1;
+    @Column(name = "away_player_2")
+    private Long awayPlayer2;
+    @Column(name = "away_player_3")
+    private Long awayPlayer3;
+    @Column(name = "away_player_4")
+    private Long awayPlayer4;
+    @Column(name = "away_player_5")
+    private Long awayPlayer5;
+    @Column(name = "away_player_6")
+    private Long awayPlayer6;
+    @Column(name = "away_player_7")
+    private Long awayPlayer7;
+    @Column(name = "away_player_8")
+    private Long awayPlayer8;
+    @Column(name = "away_player_9")
+    private Long awayPlayer9;
+    @Column(name = "away_player_10")
+    private Long awayPlayer10;
+    @Column(name = "away_player_11")
+    private Long awayPlayer11;
     @Lob
     @Column(name = "goal")
     private String goal;
@@ -223,7 +197,7 @@ public class Matches implements Serializable {
     @Column(name = "card")
     private String card;
     @Lob
-    @Column(name = "cross")
+    @Column(name = "crosspass")
     private String crosspass;
     @Lob
     @Column(name = "corner")
@@ -307,22 +281,6 @@ public class Matches implements Serializable {
         this.id = id;
     }
 
-    public Country getCountryId() {
-        return countryId;
-    }
-
-    public void setCountryId(Country countryId) {
-        this.countryId = countryId;
-    }
-
-    public League getLeagueId() {
-        return leagueId;
-    }
-
-    public void setLeagueId(League leagueId) {
-        this.leagueId = leagueId;
-    }
-
     public String getSeason() {
         return season;
     }
@@ -339,12 +297,12 @@ public class Matches implements Serializable {
         this.stage = stage;
     }
 
-    public String getDate() {
-        return date;
+    public String getMatchDate() {
+        return matchDate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setMatchDate(String matchDate) {
+        this.matchDate = matchDate;
     }
 
     public Integer getMatchApiId() {
@@ -353,23 +311,7 @@ public class Matches implements Serializable {
 
     public void setMatchApiId(Integer matchApiId) {
         this.matchApiId = matchApiId;
-    }
-
-    public Team getHomeTeamApiId() {
-        return homeTeamApiId;
-    }
-
-    public void setHomeTeamApiId(Team homeTeamApiId) {
-        this.homeTeamApiId = homeTeamApiId;
-    }
-
-    public Team getAwayTeamApiId() {
-        return awayTeamApiId;
-    }
-
-    public void setAwayTeamApiId(Team awayTeamApiId) {
-        this.awayTeamApiId = awayTeamApiId;
-    }
+    }  
 
     public Integer getHomeTeamGoal() {
         return homeTeamGoal;
@@ -739,182 +681,6 @@ public class Matches implements Serializable {
         this.awayplayerY11 = awayplayerY11;
     }
 
-    public Player getHomePlayer1() {
-        return homePlayer1;
-    }
-
-    public void setHomePlayer1(Player homePlayer1) {
-        this.homePlayer1 = homePlayer1;
-    }
-
-    public Player getHomePlayer2() {
-        return homePlayer2;
-    }
-
-    public void setHomePlayer2(Player homePlayer2) {
-        this.homePlayer2 = homePlayer2;
-    }
-
-    public Player getHomePlayer3() {
-        return homePlayer3;
-    }
-
-    public void setHomePlayer3(Player homePlayer3) {
-        this.homePlayer3 = homePlayer3;
-    }
-
-    public Player getHomePlayer4() {
-        return homePlayer4;
-    }
-
-    public void setHomePlayer4(Player homePlayer4) {
-        this.homePlayer4 = homePlayer4;
-    }
-
-    public Player getHomePlayer5() {
-        return homePlayer5;
-    }
-
-    public void setHomePlayer5(Player homePlayer5) {
-        this.homePlayer5 = homePlayer5;
-    }
-
-    public Player getHomePlayer6() {
-        return homePlayer6;
-    }
-
-    public void setHomePlayer6(Player homePlayer6) {
-        this.homePlayer6 = homePlayer6;
-    }
-
-    public Player getHomePlayer7() {
-        return homePlayer7;
-    }
-
-    public void setHomePlayer7(Player homePlayer7) {
-        this.homePlayer7 = homePlayer7;
-    }
-
-    public Player getHomePlayer8() {
-        return homePlayer8;
-    }
-
-    public void setHomePlayer8(Player homePlayer8) {
-        this.homePlayer8 = homePlayer8;
-    }
-
-    public Player getHomePlayer9() {
-        return homePlayer9;
-    }
-
-    public void setHomePlayer9(Player homePlayer9) {
-        this.homePlayer9 = homePlayer9;
-    }
-
-    public Player getHomePlayer10() {
-        return homePlayer10;
-    }
-
-    public void setHomePlayer10(Player homePlayer10) {
-        this.homePlayer10 = homePlayer10;
-    }
-
-    public Player getHomePlayer11() {
-        return homePlayer11;
-    }
-
-    public void setHomePlayer11(Player homePlayer11) {
-        this.homePlayer11 = homePlayer11;
-    }
-
-    public Player getAwayPlayer1() {
-        return awayPlayer1;
-    }
-
-    public void setAwayPlayer1(Player awayPlayer1) {
-        this.awayPlayer1 = awayPlayer1;
-    }
-
-    public Player getAwayPlayer2() {
-        return awayPlayer2;
-    }
-
-    public void setAwayPlayer2(Player awayPlayer2) {
-        this.awayPlayer2 = awayPlayer2;
-    }
-
-    public Player getAwayPlayer3() {
-        return awayPlayer3;
-    }
-
-    public void setAwayPlayer3(Player awayPlayer3) {
-        this.awayPlayer3 = awayPlayer3;
-    }
-
-    public Player getAwayPlayer4() {
-        return awayPlayer4;
-    }
-
-    public void setAwayPlayer4(Player awayPlayer4) {
-        this.awayPlayer4 = awayPlayer4;
-    }
-
-    public Player getAwayPlayer5() {
-        return awayPlayer5;
-    }
-
-    public void setAwayPlayer5(Player awayPlayer5) {
-        this.awayPlayer5 = awayPlayer5;
-    }
-
-    public Player getAwayPlayer6() {
-        return awayPlayer6;
-    }
-
-    public void setAwayPlayer6(Player awayPlayer6) {
-        this.awayPlayer6 = awayPlayer6;
-    }
-
-    public Player getAwayPlayer7() {
-        return awayPlayer7;
-    }
-
-    public void setAwayPlayer7(Player awayPlayer7) {
-        this.awayPlayer7 = awayPlayer7;
-    }
-
-    public Player getAwayPlayer8() {
-        return awayPlayer8;
-    }
-
-    public void setAwayPlayer8(Player awayPlayer8) {
-        this.awayPlayer8 = awayPlayer8;
-    }
-
-    public Player getAwayPlayer9() {
-        return awayPlayer9;
-    }
-
-    public void setAwayPlayer9(Player awayPlayer9) {
-        this.awayPlayer9 = awayPlayer9;
-    }
-
-    public Player getAwayPlayer10() {
-        return awayPlayer10;
-    }
-
-    public void setAwayPlayer10(Player awayPlayer10) {
-        this.awayPlayer10 = awayPlayer10;
-    }
-
-    public Player getAwayPlayer11() {
-        return awayPlayer11;
-    }
-
-    public void setAwayPlayer11(Player awayPlayer11) {
-        this.awayPlayer11 = awayPlayer11;
-    }
-
     public String getGoal() {
         return goal;
     }
@@ -1218,6 +984,216 @@ public class Matches implements Serializable {
     public void setBsa(Long bsa) {
         this.bsa = bsa;
     }
+
+    public Long getCountryId() {
+        return countryId;
+    }
+
+    public void setCountryId(Long countryId) {
+        this.countryId = countryId;
+    }
+
+    public Long getLeagueId() {
+        return leagueId;
+    }
+
+    public void setLeagueId(Long leagueId) {
+        this.leagueId = leagueId;
+    }
+
+    public Long getHomeTeamApiId() {
+        return homeTeamApiId;
+    }
+
+    public void setHomeTeamApiId(Long homeTeamApiId) {
+        this.homeTeamApiId = homeTeamApiId;
+    }
+
+    public Long getAwayTeamApiId() {
+        return awayTeamApiId;
+    }
+
+    public void setAwayTeamApiId(Long awayTeamApiId) {
+        this.awayTeamApiId = awayTeamApiId;
+    }
+
+    public Long getHomePlayer1() {
+        return homePlayer1;
+    }
+
+    public void setHomePlayer1(Long homePlayer1) {
+        this.homePlayer1 = homePlayer1;
+    }
+
+    public Long getHomePlayer2() {
+        return homePlayer2;
+    }
+
+    public void setHomePlayer2(Long homePlayer2) {
+        this.homePlayer2 = homePlayer2;
+    }
+
+    public Long getHomePlayer3() {
+        return homePlayer3;
+    }
+
+    public void setHomePlayer3(Long homePlayer3) {
+        this.homePlayer3 = homePlayer3;
+    }
+
+    public Long getHomePlayer4() {
+        return homePlayer4;
+    }
+
+    public void setHomePlayer4(Long homePlayer4) {
+        this.homePlayer4 = homePlayer4;
+    }
+
+    public Long getHomePlayer5() {
+        return homePlayer5;
+    }
+
+    public void setHomePlayer5(Long homePlayer5) {
+        this.homePlayer5 = homePlayer5;
+    }
+
+    public Long getHomePlayer6() {
+        return homePlayer6;
+    }
+
+    public void setHomePlayer6(Long homePlayer6) {
+        this.homePlayer6 = homePlayer6;
+    }
+
+    public Long getHomePlayer7() {
+        return homePlayer7;
+    }
+
+    public void setHomePlayer7(Long homePlayer7) {
+        this.homePlayer7 = homePlayer7;
+    }
+
+    public Long getHomePlayer8() {
+        return homePlayer8;
+    }
+
+    public void setHomePlayer8(Long homePlayer8) {
+        this.homePlayer8 = homePlayer8;
+    }
+
+    public Long getHomePlayer9() {
+        return homePlayer9;
+    }
+
+    public void setHomePlayer9(Long homePlayer9) {
+        this.homePlayer9 = homePlayer9;
+    }
+
+    public Long getHomePlayer10() {
+        return homePlayer10;
+    }
+
+    public void setHomePlayer10(Long homePlayer10) {
+        this.homePlayer10 = homePlayer10;
+    }
+
+    public Long getHomePlayer11() {
+        return homePlayer11;
+    }
+
+    public void setHomePlayer11(Long homePlayer11) {
+        this.homePlayer11 = homePlayer11;
+    }
+
+    public Long getAwayPlayer1() {
+        return awayPlayer1;
+    }
+
+    public void setAwayPlayer1(Long awayPlayer1) {
+        this.awayPlayer1 = awayPlayer1;
+    }
+
+    public Long getAwayPlayer2() {
+        return awayPlayer2;
+    }
+
+    public void setAwayPlayer2(Long awayPlayer2) {
+        this.awayPlayer2 = awayPlayer2;
+    }
+
+    public Long getAwayPlayer3() {
+        return awayPlayer3;
+    }
+
+    public void setAwayPlayer3(Long awayPlayer3) {
+        this.awayPlayer3 = awayPlayer3;
+    }
+
+    public Long getAwayPlayer4() {
+        return awayPlayer4;
+    }
+
+    public void setAwayPlayer4(Long awayPlayer4) {
+        this.awayPlayer4 = awayPlayer4;
+    }
+
+    public Long getAwayPlayer5() {
+        return awayPlayer5;
+    }
+
+    public void setAwayPlayer5(Long awayPlayer5) {
+        this.awayPlayer5 = awayPlayer5;
+    }
+
+    public Long getAwayPlayer6() {
+        return awayPlayer6;
+    }
+
+    public void setAwayPlayer6(Long awayPlayer6) {
+        this.awayPlayer6 = awayPlayer6;
+    }
+
+    public Long getAwayPlayer7() {
+        return awayPlayer7;
+    }
+
+    public void setAwayPlayer7(Long awayPlayer7) {
+        this.awayPlayer7 = awayPlayer7;
+    }
+
+    public Long getAwayPlayer8() {
+        return awayPlayer8;
+    }
+
+    public void setAwayPlayer8(Long awayPlayer8) {
+        this.awayPlayer8 = awayPlayer8;
+    }
+
+    public Long getAwayPlayer9() {
+        return awayPlayer9;
+    }
+
+    public void setAwayPlayer9(Long awayPlayer9) {
+        this.awayPlayer9 = awayPlayer9;
+    }
+
+    public Long getAwayPlayer10() {
+        return awayPlayer10;
+    }
+
+    public void setAwayPlayer10(Long awayPlayer10) {
+        this.awayPlayer10 = awayPlayer10;
+    }
+
+    public Long getAwayPlayer11() {
+        return awayPlayer11;
+    }
+
+    public void setAwayPlayer11(Long awayPlayer11) {
+        this.awayPlayer11 = awayPlayer11;
+    }
+    
+    
 
     @Override
     public int hashCode() {

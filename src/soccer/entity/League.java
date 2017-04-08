@@ -6,7 +6,6 @@
 package soccer.entity;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,9 +35,8 @@ public class League implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
-    @OneToOne
-    @JoinColumn(name = "country_id")
-    private Country countryId;
+    @Column(name = "country_id")
+    private Long countryId;
     @Column(name = "name")
     private String name;
 
@@ -57,11 +55,11 @@ public class League implements Serializable {
         this.id = id;
     }
 
-    public Country getCountryId() {
+    public Long getCountryId() {
         return countryId;
     }
 
-    public void setCountryId(Country countryId) {
+    public void setCountryId(Long countryId) {
         this.countryId = countryId;
     }
 

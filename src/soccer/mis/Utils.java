@@ -41,7 +41,14 @@ public class Utils {
                 return null;
             }            
         } else {
-            return columnAnnotation.name();
+            String columnString = columnAnnotation.name();
+            if(columnString.equals("crosspass")) {
+                return "cross";
+            }
+            if(columnString.contains("_date")) {
+                return "date";
+            }
+            return columnString;            
         }
     }
 }

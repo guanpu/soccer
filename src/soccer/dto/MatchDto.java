@@ -5,7 +5,9 @@
  */
 package soccer.dto;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -78,14 +80,14 @@ public class MatchDto {
         /**
          * Use this code snippet to manually generate sql.
          */
-//        Map properties = new HashMap();
-//        properties.put("javax.persistence.schema-generation.scripts.action", "create");
-//        properties.put("javax.persistence.schema-generation.scripts.create-target", "create-schema.sql");
-//
-//        Persistence.generateSchema("soccerPU", properties);
-        MatchDto dto  = new MatchDto("SELECT t FROM Matches t");
-        List<Matches> list = dto.getMatches();
-        System.out.printf("%d \n", list.size());
+        Map properties = new HashMap();
+        properties.put("javax.persistence.schema-generation.scripts.action", "create");
+        properties.put("javax.persistence.schema-generation.scripts.create-target", "create-schema.sql");
+
+        Persistence.generateSchema("soccerPU", properties);
+//        MatchDto dto  = new MatchDto("SELECT t FROM Matches t");
+//        List<Matches> list = dto.getMatches();
+//        System.out.printf("%d \n", list.size());
         
     }
     
