@@ -34,44 +34,92 @@ public class TeamAttributes implements Serializable {
     private String teamDate;
     @Column(name = "buildupplayspeed")
     private Long buildupplayspeed;
+    
+    /**
+     * Balanced, Fast, Slow
+     */
     @Column(name = "buildupplayspeedclass")
     private String buildupplayspeedclass;
     @Column(name = "buildupplaydribbling")
     private Long buildupplaydribbling;
+    
+    /**
+     * Little, Normal, Lots
+     */
     @Column(name = "buildupplaydribblingclass")
     private String buildupplaydribblingclass;
     @Column(name = "buildupplaypassing")
     private Long buildupplaypassing;
+    
+    /**
+     * Mixed, Short, Long
+     */
     @Column(name = "buildupplaypassingclass")
     private String buildupplaypassingclass;
+    
+    /**
+     * Organised, Free Form
+     */
     @Column(name = "buildupplaypositioningclass")
     private String buildupplaypositioningclass;
     @Column(name = "chancecreationpassing")
     private Long chancecreationpassing;
+    
+    /**
+     * Normal, Risky, Safe
+     */
     @Column(name = "chancecreationpassingclass")
     private String chancecreationpassingclass;
     @Column(name = "chancecreationcrossing")
     private Long chancecreationcrossing;
+    
+    /**
+     * Normal, Little, Lots
+     */
     @Column(name = "chancecreationcrossingclass")
     private String chancecreationcrossingclass;
     @Column(name = "chancecreationshooting")
     private Long chancecreationshooting;
+    
+    /**
+     * Normal, Little, Lots
+     */
     @Column(name = "chancecreationshootingclass")
     private String chancecreationshootingclass;
+    
+    /**
+     * Organised, Free Form
+     */
     @Column(name = "chancecreationpositioningclass")
     private String chancecreationpositioningclass;
     @Column(name = "defencepressure")
     private Long defencepressure;
+    
+    /**
+     * Medium, Deep, High
+     */
     @Column(name = "defencepressureclass")
     private String defencepressureclass;
     @Column(name = "defenceaggression")
     private Long defenceaggression;
+    
+    /**
+     * Press, Double, Contain
+     */
     @Column(name = "defenceaggressionclass")
     private String defenceaggressionclass;
     @Column(name = "defenceteamwidth")
     private Long defenceteamwidth;
+    
+    /**
+     * Normal, Wide, Narrow
+     */
     @Column(name = "defenceteamwidthclass")
     private String defenceteamwidthclass;
+    
+    /**
+     * Cover, Offside Trap
+     */
     @Column(name = "defencedefenderlineclass")
     private String defencedefenderlineclass;
 

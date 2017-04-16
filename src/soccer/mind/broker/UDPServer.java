@@ -9,14 +9,17 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  *
  * @author pguan
  */
 public class UDPServer implements Runnable{
+    private final ConcurrentLinkedQueue<String> queue;
 
-    public UDPServer() throws SocketException {
+    public UDPServer(ConcurrentLinkedQueue<String> queue) throws SocketException {
+        this.queue = queue;
         this.s = new DatagramSocket(20000);
         this.flag = true;
     }
@@ -25,13 +28,13 @@ public class UDPServer implements Runnable{
     private DatagramSocket s;
     public void run() {
         try {
-            byte[] buf = new byte[256];
-            DatagramPacket p = new DatagramPacket(buf, 256);
+            byte[] buf = new byte[1024];
+            DatagramPacket p = new DatagramPacket(buf, 1024);
             while (flag) {
                 s.receive(p);
                 if(p.getLength()>0) {
                     String data = new String(p.getData());
-                    System.out.println(data);
+                    queue.add(data);
                 }
             }
         } catch (IOException e) {

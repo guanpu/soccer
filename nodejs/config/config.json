@@ -4,7 +4,7 @@
             "hostname": "arisalexis-soccer-odds-v1.p.mashape.com",
             "auth_key": "X-Mashape-Key",
             "auth_value": "GtS6rqjauWmshN1w1GeyUehlythLp1i4e06jsn5DctOHXjNQxz",
-            "leagues": [2,7,9,10,26]
+            "leagues": [2,7,9,10]
 
         },
         "lineup": "http://www.teamfeed.co.uk/lineups/"

@@ -7,6 +7,7 @@ package soccer.dto;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -77,6 +78,17 @@ public class MatchDto {
      * @param args 
      */
     public static void main(String[] args) {
+//        List<String> s = new ArrayList<>();
+//        s.add("b");
+//        String[] arr = s.stream().filter((ss)->{
+//            return ss.compareTo("a")<0;
+//        }).toArray(String[]::new);
+//        if(null ==arr) {
+//            System.out.println("OK");
+//        }else {
+//            System.err.println(arr.length);
+//        }
+        
         /**
          * Use this code snippet to manually generate sql.
          */

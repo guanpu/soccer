@@ -1,0 +1,28 @@
+6269 : Novara : MANUAL CHECK
+8152 : FC St. Pauli : MANUAL CHECK
+8194 : Fortuna D��sseldorf : MANUAL CHECK //杜塞尔多夫 已降级，未收录
+8295 : Karlsruher SC : MANUAL CHECK
+8350 : 1. FC Kaiserslautern : MANUAL CHECK //凯泽斯劳滕 已降级，未收录
+8357 : SpVgg Greuther F��rth : MANUAL CHECK
+8388 : CD Numancia : MANUAL CHECK
+8394 : Real Zaragoza : MANUAL CHECK //萨拉戈萨 已降级，未收录
+8398 : FC Energie Cottbus : MANUAL CHECK //科特布斯 已降级，未收录
+8479 : RC Recreativo : MANUAL CHECK //韦尔瓦 已降级，未收录
+8483 : Blackpool : MANUAL CHECK //布莱克浦 已降级，未收录
+8462 : Portsmouth : MANUAL CHECK //朴茨茅斯 已降级，未收录
+8551 : Siena : MANUAL CHECK //锡耶纳 已降级，未收录
+8603 : Real Betis Balompi�� : MANUAL CHECK
+8636 : Inter : MANUAL CHECK //国米 Internazionale 未识别
+8661 : RCD Mallorca : MANUAL CHECK //马洛卡 已降级，未收录
+9823 : FC Bayern Munich : MANUAL CHECK //拜仁 Bayern München 未识别
+8690 : Reggio Calabria : MANUAL CHECK //科里亚（意甲） 已降级，未收录
+9858 : Brescia : MANUAL CHECK //布雷西亚（意甲） 已降级，未收录
+9867 : CD Tenerife : MANUAL CHECK //特纳利夫（西甲） 已降级，未收录
+9888 : Lecce : MANUAL CHECK //莱切 已降级，未收录
+9876 : Hellas Verona : MANUAL CHECK //维罗纳 已降级，未收录
+9911 : VfL Bochum : MANUAL CHECK
+9912 : DSC Arminia Bielefeld : MANUAL CHECK
+9976 : Bari : MANUAL CHECK //巴里 已降级，未收录
+10172 : Queens Park Rangers : MANUAL CHECK //女王公园巡游者 已降级，未收录
+10278 : H��rcules Club de F��tbol : MANUAL CHECK
+9868 : Xerez Club Deportivo : Deportivo Alavés //萨雷斯 已降级，未收录

@@ -1,12 +1,12 @@
 {
     "appenders": [
-        { type: 'console' },
+        { "type": "console" },
         {
             "type": "file",
             "category": "production",
             "absolute": true,
             "filename": "/var/soccer/node_log_file.log",
-            "maxLogSize": 1024,
+            "maxLogSize": 1024000,
             "backups": 7
         }
     ]

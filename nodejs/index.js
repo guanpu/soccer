@@ -100,7 +100,7 @@ function updateMatchData(matches) {
         });
         let result_startTime = new Date(item.tstamp * 1000 + 24*60*60*1000);
         let result_endTime = new Date(item.tstamp * 1000 + 36*60*60*1000);
-        var k = schedule.scheduleJob({ start: result_startTime, end: result_endTime, rule: '*/1 * * *' }, function(){
+        var k = schedule.scheduleJob({ start: result_startTime, end: result_endTime, rule: '0 */1 * * *' }, function(){
             fetchResult(item.matchId);
         });
         matchesToFetchLineup.push({
@@ -156,7 +156,7 @@ function emit(type, payload) {
 
 function run() {
     //Run every day to fetch new upcoming matches.
-    schedule.scheduleJob("*/1 * *", fetchOdd);
+    schedule.scheduleJob("5 1 */1 * *", fetchOdd);
 }
 process.on("uncaughtException", (err)=>{
     worker.send("terminate");
@@ -167,8 +167,8 @@ process.on("exit",()=>{
 });
 // run();
 fetchLineup({
-   homeTeam: "excelsior",
-   awayTeam: "ajax",
-    tstamp: 1489930200,
+   homeTeam: "malaga",
+   awayTeam: "barcelona",
+    tstamp: 1491705900,
     matchId: 12
 });

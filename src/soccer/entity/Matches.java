@@ -7,12 +7,10 @@ package soccer.entity;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.Lob;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -206,65 +204,65 @@ public class Matches implements Serializable {
     @Column(name = "possession")
     private String possession;
     @Column(name = "B365H")
-    private Long b365h;
+    private Float b365h;
     @Column(name = "B365D")
-    private Long b365d;
+    private Float b365d;
     @Column(name = "B365A")
-    private Long b365a;
+    private Float b365a;
     @Column(name = "BWH")
-    private Long bwh;
+    private Float bwh;
     @Column(name = "BWD")
-    private Long bwd;
+    private Float bwd;
     @Column(name = "BWA")
-    private Long bwa;
+    private Float bwa;
     @Column(name = "IWH")
-    private Long iwh;
+    private Float iwh;
     @Column(name = "IWD")
-    private Long iwd;
+    private Float iwd;
     @Column(name = "IWA")
-    private Long iwa;
+    private Float iwa;
     @Column(name = "LBH")
-    private Long lbh;
+    private Float lbh;
     @Column(name = "LBD")
-    private Long lbd;
+    private Float lbd;
     @Column(name = "LBA")
-    private Long lba;
+    private Float lba;
     @Column(name = "PSH")
-    private Long psh;
+    private Float psh;
     @Column(name = "PSD")
-    private Long psd;
+    private Float psd;
     @Column(name = "PSA")
-    private Long psa;
+    private Float psa;
     @Column(name = "WHH")
-    private Long whh;
+    private Float whh;
     @Column(name = "WHD")
-    private Long whd;
+    private Float whd;
     @Column(name = "WHA")
-    private Long wha;
+    private Float wha;
     @Column(name = "SJH")
-    private Long sjh;
+    private Float sjh;
     @Column(name = "SJD")
-    private Long sjd;
+    private Float sjd;
     @Column(name = "SJA")
-    private Long sja;
+    private Float sja;
     @Column(name = "VCH")
-    private Long vch;
+    private Float vch;
     @Column(name = "VCD")
-    private Long vcd;
+    private Float vcd;
     @Column(name = "VCA")
-    private Long vca;
+    private Float vca;
     @Column(name = "GBH")
-    private Long gbh;
+    private Float gbh;
     @Column(name = "GBD")
-    private Long gbd;
+    private Float gbd;
     @Column(name = "GBA")
-    private Long gba;
+    private Float gba;
     @Column(name = "BSH")
-    private Long bsh;
+    private Float bsh;
     @Column(name = "BSD")
-    private Long bsd;
+    private Float bsd;
     @Column(name = "BSA")
-    private Long bsa;
+    private Float bsa;
 
     public Matches() {
     }
@@ -745,243 +743,243 @@ public class Matches implements Serializable {
         this.possession = possession;
     }
 
-    public Long getB365h() {
+    public Float getB365h() {
         return b365h;
     }
 
-    public void setB365h(Long b365h) {
+    public void setB365h(Float b365h) {
         this.b365h = b365h;
     }
 
-    public Long getB365d() {
+    public Float getB365d() {
         return b365d;
     }
 
-    public void setB365d(Long b365d) {
+    public void setB365d(Float b365d) {
         this.b365d = b365d;
     }
 
-    public Long getB365a() {
+    public Float getB365a() {
         return b365a;
     }
 
-    public void setB365a(Long b365a) {
+    public void setB365a(Float b365a) {
         this.b365a = b365a;
     }
 
-    public Long getBwh() {
+    public Float getBwh() {
         return bwh;
     }
 
-    public void setBwh(Long bwh) {
+    public void setBwh(Float bwh) {
         this.bwh = bwh;
     }
 
-    public Long getBwd() {
+    public Float getBwd() {
         return bwd;
     }
 
-    public void setBwd(Long bwd) {
+    public void setBwd(Float bwd) {
         this.bwd = bwd;
     }
 
-    public Long getBwa() {
+    public Float getBwa() {
         return bwa;
     }
 
-    public void setBwa(Long bwa) {
+    public void setBwa(Float bwa) {
         this.bwa = bwa;
     }
 
-    public Long getIwh() {
+    public Float getIwh() {
         return iwh;
     }
 
-    public void setIwh(Long iwh) {
+    public void setIwh(Float iwh) {
         this.iwh = iwh;
     }
 
-    public Long getIwd() {
+    public Float getIwd() {
         return iwd;
     }
 
-    public void setIwd(Long iwd) {
+    public void setIwd(Float iwd) {
         this.iwd = iwd;
     }
 
-    public Long getIwa() {
+    public Float getIwa() {
         return iwa;
     }
 
-    public void setIwa(Long iwa) {
+    public void setIwa(Float iwa) {
         this.iwa = iwa;
     }
 
-    public Long getLbh() {
+    public Float getLbh() {
         return lbh;
     }
 
-    public void setLbh(Long lbh) {
+    public void setLbh(Float lbh) {
         this.lbh = lbh;
     }
 
-    public Long getLbd() {
+    public Float getLbd() {
         return lbd;
     }
 
-    public void setLbd(Long lbd) {
+    public void setLbd(Float lbd) {
         this.lbd = lbd;
     }
 
-    public Long getLba() {
+    public Float getLba() {
         return lba;
     }
 
-    public void setLba(Long lba) {
+    public void setLba(Float lba) {
         this.lba = lba;
     }
 
-    public Long getPsh() {
+    public Float getPsh() {
         return psh;
     }
 
-    public void setPsh(Long psh) {
+    public void setPsh(Float psh) {
         this.psh = psh;
     }
 
-    public Long getPsd() {
+    public Float getPsd() {
         return psd;
     }
 
-    public void setPsd(Long psd) {
+    public void setPsd(Float psd) {
         this.psd = psd;
     }
 
-    public Long getPsa() {
+    public Float getPsa() {
         return psa;
     }
 
-    public void setPsa(Long psa) {
+    public void setPsa(Float psa) {
         this.psa = psa;
     }
 
-    public Long getWhh() {
+    public Float getWhh() {
         return whh;
     }
 
-    public void setWhh(Long whh) {
+    public void setWhh(Float whh) {
         this.whh = whh;
     }
 
-    public Long getWhd() {
+    public Float getWhd() {
         return whd;
     }
 
-    public void setWhd(Long whd) {
+    public void setWhd(Float whd) {
         this.whd = whd;
     }
 
-    public Long getWha() {
+    public Float getWha() {
         return wha;
     }
 
-    public void setWha(Long wha) {
+    public void setWha(Float wha) {
         this.wha = wha;
     }
 
-    public Long getSjh() {
+    public Float getSjh() {
         return sjh;
     }
 
-    public void setSjh(Long sjh) {
+    public void setSjh(Float sjh) {
         this.sjh = sjh;
     }
 
-    public Long getSjd() {
+    public Float getSjd() {
         return sjd;
     }
 
-    public void setSjd(Long sjd) {
+    public void setSjd(Float sjd) {
         this.sjd = sjd;
     }
 
-    public Long getSja() {
+    public Float getSja() {
         return sja;
     }
 
-    public void setSja(Long sja) {
+    public void setSja(Float sja) {
         this.sja = sja;
     }
 
-    public Long getVch() {
+    public Float getVch() {
         return vch;
     }
 
-    public void setVch(Long vch) {
+    public void setVch(Float vch) {
         this.vch = vch;
     }
 
-    public Long getVcd() {
+    public Float getVcd() {
         return vcd;
     }
 
-    public void setVcd(Long vcd) {
+    public void setVcd(Float vcd) {
         this.vcd = vcd;
     }
 
-    public Long getVca() {
+    public Float getVca() {
         return vca;
     }
 
-    public void setVca(Long vca) {
+    public void setVca(Float vca) {
         this.vca = vca;
     }
 
-    public Long getGbh() {
+    public Float getGbh() {
         return gbh;
     }
 
-    public void setGbh(Long gbh) {
+    public void setGbh(Float gbh) {
         this.gbh = gbh;
     }
 
-    public Long getGbd() {
+    public Float getGbd() {
         return gbd;
     }
 
-    public void setGbd(Long gbd) {
+    public void setGbd(Float gbd) {
         this.gbd = gbd;
     }
 
-    public Long getGba() {
+    public Float getGba() {
         return gba;
     }
 
-    public void setGba(Long gba) {
+    public void setGba(Float gba) {
         this.gba = gba;
     }
 
-    public Long getBsh() {
+    public Float getBsh() {
         return bsh;
     }
 
-    public void setBsh(Long bsh) {
+    public void setBsh(Float bsh) {
         this.bsh = bsh;
     }
 
-    public Long getBsd() {
+    public Float getBsd() {
         return bsd;
     }
 
-    public void setBsd(Long bsd) {
+    public void setBsd(Float bsd) {
         this.bsd = bsd;
     }
 
-    public Long getBsa() {
+    public Float getBsa() {
         return bsa;
     }
 
-    public void setBsa(Long bsa) {
+    public void setBsa(Float bsa) {
         this.bsa = bsa;
     }
 

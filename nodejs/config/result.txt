@@ -1,0 +1,105 @@
+7869 : C��rdoba CF : Córdoba
+7878 : Granada CF : Granada
+7943 : Sassuolo : Sassuolo
+8165 : 1. FC N��rnberg : FC Nürnberg
+8177 : Hertha BSC Berlin : Hertha BSC
+8178 : Bayer 04 Leverkusen : Bayer Leverkusen
+8191 : Burnley : Burnley
+8197 : Leicester City : Leicester
+8226 : TSG 1899 Hoffenheim : Hoffenheim
+8234 : FC Ingolstadt 04 : Ingolstadt
+8262 : SV Darmstadt 98 : Darmstadt 98
+8302 : Sevilla FC : Sevilla
+8305 : Getafe CF : Getafe
+8306 : UD Las Palmas : Las Palmas
+8315 : Athletic Club de Bilbao : Athletic Club
+8344 : Cardiff City : Cardiff
+8358 : SC Freiburg : Freiburg
+8370 : Rayo Vallecano : Rayo Vallecano
+8371 : CA Osasuna : Osasuna
+8372 : SD Eibar : Eibar
+8406 : FC Augsburg : Augsburg
+8455 : Chelsea : Chelsea
+8456 : Manchester City : Manchester City
+8460 : SC Paderborn 07 : Paderborn
+8466 : Southampton : Southampton
+8472 : Sunderland : Sunderland
+8524 : Atalanta : Atalanta
+8528 : Wigan Athletic : Wigan Athletic
+8529 : Cagliari : Cagliari
+8530 : Catania : Catania
+8533 : Chievo Verona : Chievo
+8534 : Empoli : Empoli
+8535 : Fiorentina : Fiorentina
+8537 : Livorno : Livorno
+8540 : Palermo : Palermo
+8543 : Lazio : Lazio
+8549 : Middlesbrough : Middlesbrough
+8558 : RCD Espanyol : Espanyol
+8559 : Bolton Wanderers : Bolton Wanderers
+8560 : Real Sociedad : Real Sociedad
+8564 : Milan : Milan
+8581 : Levante UD : Levante
+8586 : Tottenham Hotspur : Tottenham
+8600 : Udinese : Udinese
+8602 : Wolverhampton Wanderers : Wolverhampton
+8633 : Real Madrid CF : Real Madrid
+8634 : FC Barcelona : Barcelona
+8650 : Liverpool : Liverpool
+8654 : West Ham United : West Ham
+8655 : Blackburn Rovers : Blackburn
+8658 : Birmingham City : Birmingham
+8659 : West Bromwich Albion : West Bromwich
+8667 : Hull City : Hull City
+8668 : Everton : Everton
+8678 : Bournemouth : Bournemouth
+8686 : Roma : Roma
+8696 : Racing Santander : Santa Cruz
+8697 : SV Werder Bremen : Werder Bremen
+8721 : VfL Wolfsburg : Wolfsburg
+8722 : 1. FC K?ln : FC Köln
+9776 : Eintracht Braunschweig : Eintracht Braunschweig
+9783 : RC Deportivo de La Coru?a : Deportivo La Coruña
+9788 : Borussia M?nchengladbach : Borussia Mönchengladbach
+9789 : Borussia Dortmund : Borussia Dortmund
+9790 : Hamburger SV : Hamburger SV
+9798 : Reading : Reading
+9804 : Torino : Torino
+9810 : Eintracht Frankfurt : Eintracht Frankfurt
+9817 : Watford : Watford
+9825 : Arsenal : Arsenal
+9826 : Crystal Palace : Crystal Palace
+9850 : Norwich City : Norwich
+9857 : Bologna : Bologna
+9864 : M��laga CF : Málaga
+9865 : UD Almer��a : Almería
+9869 : Real Sporting de Gij��n : Sporting Gijón
+9875 : Napoli : Napoli
+9878 : Pescara : Pescara
+9879 : Fulham : Fulham
+9880 : Cesena : Cesena
+9882 : Sampdoria : Sampdoria
+9885 : Juventus : Juventus
+9891 : Frosinone : Frosinone
+9904 : Hannover 96 : Hannover 96
+9905 : 1. FSV Mainz 05 : Mainz 05
+9906 : Atl��tico Madrid : Atlético Madrid
+9910 : RC Celta de Vigo : Celta de Vigo
+10003 : Swansea City : Swansea
+10167 : Parma : Parma
+10189 : FC Schalke 04 : Schalke 04
+10194 : Stoke City : Stoke
+10205 : Villarreal CF : Villarreal
+10233 : Genoa : Genoa
+10252 : Aston Villa : Aston Villa
+10260 : Manchester United : Manchester United
+10261 : Newcastle United : Newcastle United
+10267 : Valencia CF : Valencia
+10268 : Elche CF : Elche
+10269 : VfB Stuttgart : Stuttgart
+10281 : Real Valladolid : Real Valladolid
+208931 : Carpi : Carpi
+8636 : Inter : Internazionale
+9823 : FC Bayern Munich : Bayern München
+not-included-in-database: Deportivo Alavés
+

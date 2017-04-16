@@ -12,14 +12,12 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import soccer.entity.Matches;
 import soccer.mis.Utils;
 
 /**
@@ -83,6 +81,9 @@ public class Soccer {
                         break;
                     case "String":
                         method.invoke(T, resultSet.getString(labelName));
+                        break;
+                    case "Float":
+                        method.invoke(T, resultSet.getFloat(labelName));
                         break;
                     default:
                         method.invoke(T, typeClass.cast(resultSet.getObject(labelName)));
