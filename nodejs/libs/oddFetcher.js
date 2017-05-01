@@ -50,7 +50,7 @@ function getUpcoming() {
         https.get(_.extend(baseOptions,{"path": "/upcoming"}),(res)=>{
             const statusCode = res.statusCode;
             if(statusCode!==200 && statusCode!==304) {
-                let error = new Error(`Request Failed with status ${codestatusCode}`);
+                let error = new Error(`Request Failed with status ${statusCode}`);
                 //noinspection JSUnresolvedFunction
                 res.resume();
                 rej(error);
