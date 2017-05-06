@@ -4,5 +4,6 @@ build
 dist
 nodejs/.idea/
 nodejs/node_modules
+nodejs/config/config.json
 src/soccer/mind/broker/SimpleMailSender.java
 tmp

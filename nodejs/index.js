@@ -93,14 +93,20 @@ function updateMatchData(matches) {
         emit(4, new Error("Match Stack overflow!"));
     }
     _.each(newTargets, function(item){
-        let lineup_startTime = new Date(item.tstamp * 1000 - 40*60*1000);
-        let lineup_endTime = new Date(item.tstamp * 1000);
+        /**
+         * From 50min before the match to 5min before the match fetch the confirmed lineup every 5 minutes. 9 requests per match.
+         */
+        let lineup_startTime = new Date(item.tstamp * 1000 - 50*60*1000);
+        let lineup_endTime = new Date(item.tstamp * 1000 - 5*60*1000);
         var j = schedule.scheduleJob({ start: lineup_startTime, end: lineup_endTime, rule: '*/5 * * * *' }, function(){
             fetchLineup(item);
         });
+        /**
+         * From 24 hour after the match to 36 hour after the match fetch the results every 2 hours. 6 requests per match.
+         */
         let result_startTime = new Date(item.tstamp * 1000 + 24*60*60*1000);
         let result_endTime = new Date(item.tstamp * 1000 + 36*60*60*1000);
-        var k = schedule.scheduleJob({ start: result_startTime, end: result_endTime, rule: '0 */1 * * *' }, function(){
+        var k = schedule.scheduleJob({ start: result_startTime, end: result_endTime, rule: '0 */2 * * *' }, function(){
             fetchResult(item.matchId);
         });
         matchesToFetchLineup.push({
