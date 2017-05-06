@@ -7,7 +7,6 @@ package soccer.core;
 
 import java.io.IOException;
 import weka.clusterers.ClusterEvaluation;
-import weka.clusterers.EM;
 import weka.clusterers.SimpleKMeans;
 import weka.core.Instances;
 
