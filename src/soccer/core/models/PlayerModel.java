@@ -60,6 +60,12 @@ public class PlayerModel {
         this.attrs = attrQuery.getResultList();
     }
 
+    /**
+     * Return the instances of matches, each instance has 3 attribute home player's rating, away player's rating and
+     * the final result.
+     * @return
+     * @throws Exception 
+     */
     public Instances buildInstance() throws Exception{
         matches.forEach((m)->{
             try {
@@ -82,6 +88,12 @@ public class PlayerModel {
         return instances;
     }
     
+    /**
+     * Get the average player rating score for the matches.
+     * @param m
+     * @return
+     * @throws Exception 
+     */
     public double[] getPlayersForMatches(Matches m) throws Exception{
         final String dt = m.getMatchDate();
         double[] toreturn = new double[3];

@@ -94,9 +94,9 @@ function updateMatchData(matches) {
     }
     _.each(newTargets, function(item){
         /**
-         * From 50min before the match to 5min before the match fetch the confirmed lineup every 5 minutes. 9 requests per match.
+         * From 60min before the match to 5min before the match fetch the confirmed lineup every 5 minutes.
          */
-        let lineup_startTime = new Date(item.tstamp * 1000 - 50*60*1000);
+        let lineup_startTime = new Date(item.tstamp * 1000 - 60*60*1000);
         let lineup_endTime = new Date(item.tstamp * 1000 - 5*60*1000);
         var j = schedule.scheduleJob({ start: lineup_startTime, end: lineup_endTime, rule: '*/5 * * * *' }, function(){
             fetchLineup(item);

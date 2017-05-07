@@ -9,6 +9,7 @@
     <class>soccer.entity.PlayerAttributes</class>
     <class>soccer.entity.League</class>
     <class>soccer.entity.Matches</class>
+    <class>soccer.entity.Model1</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/football?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
