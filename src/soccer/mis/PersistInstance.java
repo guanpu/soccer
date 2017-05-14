@@ -49,6 +49,8 @@ public class PersistInstance {
         Attribute awayvari = new Attribute("awayvari");
         Attribute homeExp = new Attribute("homeExp");
         Attribute awayExp = new Attribute("awayExp");
+        Attribute homeId = new Attribute("homeId");
+        Attribute awayId = new Attribute("awayId");
         
         ArrayList<String> results = new ArrayList<>();
         results.add("Win");
@@ -64,6 +66,8 @@ public class PersistInstance {
         attrs.add(awayExp);
         //todo: Add recent results, i.e. profile
         attrs.add(result);
+        attrs.add(homeId);
+        attrs.add(awayId);
         this.instances = new Instances("myinstance", attrs, 0);
     }
 
@@ -88,6 +92,8 @@ public class PersistInstance {
                     default:
                         System.err.println("Error");
                 }
+                values[7] = m.getHomeTeamId().doubleValue();
+                values[8] = m.getAwayTeamId().doubleValue();
                 Instance inst = new DenseInstance(1.0, values);
                 instances.add(inst);
             } catch (Exception ex) {
@@ -98,7 +104,7 @@ public class PersistInstance {
     }
     
     public double[] getAvgAndVariance(Model1 m) throws Exception {
-        double[] db = new double[7];
+        double[] db = new double[9];
         double[] ints = new double[12];
         for (int i = 1; i < 12; i++) {
             Method getterMethod = Model1.class.getMethod("getP" + i);

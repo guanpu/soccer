@@ -15,7 +15,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import soccer.entity.Matches;
-import soccer.entity.Player;
 import soccer.entity.PlayerAttributes;
 import weka.clusterers.ClusterEvaluation;
 import weka.clusterers.SimpleKMeans;
