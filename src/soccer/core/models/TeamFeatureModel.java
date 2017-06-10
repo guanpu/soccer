@@ -15,7 +15,7 @@ import java.io.*;
 import javax.persistence.EntityTransaction;
 import soccer.entity.Matches;
 /**
- *
+ * Based on BuildModel1, adding teamFeature into the database.
  * @author pguan
  */
 public class TeamFeatureModel {

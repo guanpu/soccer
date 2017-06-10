@@ -6,7 +6,6 @@
 package soccer.entity;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -76,9 +75,9 @@ public class Model1 implements Serializable {
     @Column(name = "P22")
     private Integer p22;
     @Column(name = "HTEAM_ATT1")
-    private Integer hteamAtt1;
+    private Integer stage;
     @Column(name = "ATEAM_ATT1")
-    private Integer ateamAtt1;
+    private Integer league;
     @Column(name = "HTEAM_ATT2")
     private Integer hteamAtt2;
     @Column(name = "ATEAM_ATT2")
@@ -90,19 +89,19 @@ public class Model1 implements Serializable {
     @Column(name = "final_result")
     private Integer finalResult;
     @Column(name = "home_team_id")
-    private BigInteger homeTeamId;
+    private Long homeTeamId;
     @Column(name = "away_team_id")
-    private BigInteger awayTeamId;
+    private Long awayTeamId;
     @Column(name = "home_curr_rank")
-    private Integer homeCurrRank;
+    private Integer homeMorale;
     @Column(name = "away_curr_rank")
-    private Integer awayCurrRank;
+    private Integer awayMorale;
     @Column(name = "home_exp_rank")
     private Integer homeExpRank;
     @Column(name = "away_exp_rank")
     private Integer awayExpRank;
     @Column(name = "home_last_profile")
-    private String homeLastProfile;
+    private String season;
     @Column(name = "away_last_profile")
     private String awayLastProfile;
     @Column(name = "matchdate")
@@ -318,22 +317,6 @@ public class Model1 implements Serializable {
         this.p22 = p22;
     }
 
-    public Integer getHteamAtt1() {
-        return hteamAtt1;
-    }
-
-    public void setHteamAtt1(Integer hteamAtt1) {
-        this.hteamAtt1 = hteamAtt1;
-    }
-
-    public Integer getAteamAtt1() {
-        return ateamAtt1;
-    }
-
-    public void setAteamAtt1(Integer ateamAtt1) {
-        this.ateamAtt1 = ateamAtt1;
-    }
-
     public Integer getHteamAtt2() {
         return hteamAtt2;
     }
@@ -374,36 +357,20 @@ public class Model1 implements Serializable {
         this.finalResult = finalResult;
     }
 
-    public BigInteger getHomeTeamId() {
+    public Long getHomeTeamId() {
         return homeTeamId;
     }
 
-    public void setHomeTeamId(BigInteger homeTeamId) {
+    public void setHomeTeamId(Long homeTeamId) {
         this.homeTeamId = homeTeamId;
     }
 
-    public BigInteger getAwayTeamId() {
+    public Long getAwayTeamId() {
         return awayTeamId;
     }
 
-    public void setAwayTeamId(BigInteger awayTeamId) {
+    public void setAwayTeamId(Long awayTeamId) {
         this.awayTeamId = awayTeamId;
-    }
-
-    public Integer getHomeCurrRank() {
-        return homeCurrRank;
-    }
-
-    public void setHomeCurrRank(Integer homeCurrRank) {
-        this.homeCurrRank = homeCurrRank;
-    }
-
-    public Integer getAwayCurrRank() {
-        return awayCurrRank;
-    }
-
-    public void setAwayCurrRank(Integer awayCurrRank) {
-        this.awayCurrRank = awayCurrRank;
     }
 
     public Integer getHomeExpRank() {
@@ -422,14 +389,6 @@ public class Model1 implements Serializable {
         this.awayExpRank = awayExpRank;
     }
 
-    public String getHomeLastProfile() {
-        return homeLastProfile;
-    }
-
-    public void setHomeLastProfile(String homeLastProfile) {
-        this.homeLastProfile = homeLastProfile;
-    }
-
     public String getAwayLastProfile() {
         return awayLastProfile;
     }
@@ -437,6 +396,48 @@ public class Model1 implements Serializable {
     public void setAwayLastProfile(String awayLastProfile) {
         this.awayLastProfile = awayLastProfile;
     }
+
+    public Integer getStage() {
+        return stage;
+    }
+
+    public void setStage(Integer stage) {
+        this.stage = stage;
+    }
+
+    public Integer getLeague() {
+        return league;
+    }
+
+    public void setLeague(Integer league) {
+        this.league = league;
+    }
+
+    public Integer getHomeMorale() {
+        return homeMorale;
+    }
+
+    public void setHomeMorale(Integer homeMorale) {
+        this.homeMorale = homeMorale;
+    }
+
+    public Integer getAwayMorale() {
+        return awayMorale;
+    }
+
+    public void setAwayMorale(Integer awayMorale) {
+        this.awayMorale = awayMorale;
+    }
+
+    public String getSeason() {
+        return season;
+    }
+
+    public void setSeason(String season) {
+        this.season = season;
+    }
+    
+    
 
     @Override
     public int hashCode() {

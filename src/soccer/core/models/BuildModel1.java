@@ -19,7 +19,7 @@ import soccer.entity.Model1;
 import soccer.entity.PlayerAttributes;
 
 /**
- *
+ * Class to create data into database model1 table.
  * @author pguan
  */
 public class BuildModel1 {

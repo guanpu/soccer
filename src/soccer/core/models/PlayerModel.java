@@ -22,8 +22,10 @@ import weka.core.Attribute;
 import weka.core.Instances;
 import weka.core.Instance;
 import weka.core.DenseInstance;
+
 /**
- *
+ * Deprecated model: only contains home-team & away-team players' avg score and result.
+ * Just keep this model to keep the code for reference.
  * @author pguan
  */
 public class PlayerModel {
