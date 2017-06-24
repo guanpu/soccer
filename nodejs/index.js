@@ -9,7 +9,7 @@ const child_process = require("child_process");
 const worker = child_process.fork(`${__dirname}/libs/udpServer`);
 const logger = require("./config/logger").logger;
 var targetMatches = [];
-var matchesToCatchReslt = [];
+var matchesToCatchResult = [];
 var matchesToFetchLineup = [];
 
 function fetchOdd() {
@@ -113,7 +113,7 @@ function updateMatchData(matches) {
             matchId: item.matchId,
             schedule: j
         });
-        matchesToCatchReslt.push({
+        matchesToCatchResult.push({
             matchId: item.matchId,
             schedule: k
         });
@@ -135,12 +135,12 @@ function removeLineupSchedule(matchId) {
 
 function removeResultSchedule(matchId) {
     //Cancel the schedule
-    var match = _.find(matchesToCatchReslt,(item)=>{
+    var match = _.find(matchesToCatchResult,(item)=>{
         item.matchId = matchId;
     });
     match.schedule.cancel();
     //Remove the specific match from the to-fetch-result-list.
-    matchesToCatchReslt = _.filter(matchesToCatchReslt, (item)=>{
+    matchesToCatchResult = _.filter(matchesToCatchResult, (item)=>{
         item.matchId = matchId;
     });
     //Remove the specific match from the target-match-list.
