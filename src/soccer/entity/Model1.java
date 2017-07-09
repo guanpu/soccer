@@ -74,9 +74,9 @@ public class Model1 implements Serializable {
     private Integer p21;
     @Column(name = "P22")
     private Integer p22;
-    @Column(name = "HTEAM_ATT1")
+    @Column(name = "stage")
     private Integer stage;
-    @Column(name = "ATEAM_ATT1")
+    @Column(name = "league")
     private Integer league;
     @Column(name = "HTEAM_ATT2")
     private Integer hteamAtt2;
@@ -92,15 +92,15 @@ public class Model1 implements Serializable {
     private Long homeTeamId;
     @Column(name = "away_team_id")
     private Long awayTeamId;
-    @Column(name = "home_curr_rank")
+    @Column(name = "home_morale")
     private Integer homeMorale;
-    @Column(name = "away_curr_rank")
+    @Column(name = "away_morale")
     private Integer awayMorale;
     @Column(name = "home_exp_rank")
     private Integer homeExpRank;
     @Column(name = "away_exp_rank")
     private Integer awayExpRank;
-    @Column(name = "home_last_profile")
+    @Column(name = "season")
     private String season;
     @Column(name = "away_last_profile")
     private String awayLastProfile;

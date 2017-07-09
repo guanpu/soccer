@@ -34,7 +34,7 @@ public class TeamFeatureModel {
     public TeamFeatureModel() throws FileNotFoundException {
         this.em = emf.createEntityManager();
         
-        Query attrQuery = em.createQuery("SELECT t FROM Model1 t");
+        Query attrQuery = em.createQuery("SELECT t FROM Model1 t where t.homeExpRank>0");
         this.list = attrQuery.getResultList();
         Query matchQuery = em.createQuery("SELECT t FROM Matches t where t.matchDate>'2013-07-01 00:00:00'");
         this.matchlist = matchQuery.getResultList();
@@ -69,9 +69,12 @@ public class TeamFeatureModel {
             if(null == dateStirng) {
                 continue;
             }
-            item.setMatchdate(dateStirng);
+//            item.setMatchdate(dateStirng);
             String shortDate = getSeason(dateStirng);
             if(null == shortDate) {
+//                em.merge(item);
+                item.setHomeExpRank(0);
+                item.setAwayExpRank(0);
                 em.merge(item);
                 return;
             } else {
@@ -92,15 +95,20 @@ public class TeamFeatureModel {
         tfm.persistRank();
     }
     
+    /**
+     * Say match date is in 2013-2014 season, we use 2012/2013 season rank as its expected rank.
+     * @param date
+     * @return 
+     */
     public String getSeason(String date) {
         if(date.compareTo("2013-07-11 00:00:00")<0) {
             return null;            
         }else if (date.compareTo("2013-07-11 00:00:00") > 0 && date.compareTo("2014-07-11 00:00:00") < 0) {
-            return "2013";
+            return "2012";
         }else if (date.compareTo("2014-07-11 00:00:00") > 0 && date.compareTo("2015-07-11 00:00:00") < 0) {
-            return "2014";
+            return "2013";
         }else if (date.compareTo("2015-07-11 00:00:00") > 0 && date.compareTo("2016-07-11 00:00:00") < 0) {
-            return "2015";
+            return "2014";
         }
         return null;        
     }

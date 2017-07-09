@@ -36,7 +36,7 @@ public class RecentProfile {
     private static final Integer DESPERATED = 5;
     
     public RecentProfile() {
-        Query attrQuery = em.createQuery("SELECT t FROM Model1 t where t.homeExpRank IS NOT NULL AND t.awayExpRank IS NOT NULL");
+        Query attrQuery = em.createQuery("SELECT t FROM Model1 t where t.homeExpRank>0 AND t.awayExpRank>0");
         this.list = attrQuery.getResultList();
         Query matchQuery = em.createQuery("SELECT t FROM Matches t where t.leagueId=1729 OR t.leagueId=21518 OR t.leagueId=10257 ORDER BY t.season,t.stage");
         List<Matches> matches = matchQuery.getResultList();
@@ -73,9 +73,9 @@ public class RecentProfile {
             item.setStage(stage);
             item.setSeason(match.getSeason());
             item.setLeague(match.getLeagueId().intValue());
-            if( stage < 5 || stage > 35) {
-                item.setHomeMorale(NORMAL);
-                item.setAwayMorale(NORMAL);                
+            if( stage < 5 || stage > 36) {
+                item.setHomeMorale(null);
+                item.setAwayMorale(null);                
             } else {
                 int[] forHome = new int[4];
                 int[] forAway = new int[4];
@@ -89,42 +89,42 @@ public class RecentProfile {
                             int homeGoal = m.getHomeTeamGoal();
                             int awayGoal = m.getAwayTeamGoal();
                             if (homeGoal - awayGoal > 0) {
-                                forHome[i] = 1;
+                                forHome[i] = 3;
                             } else if (homeGoal - awayGoal < 0) {
-                                forHome[i] = -1;
-                            } else {
                                 forHome[i] = 0;
+                            } else {
+                                forHome[i] = 1;
                             }
                         } else if(m.getAwayTeamApiId().equals(homeId)) {
                             int homeGoal = m.getHomeTeamGoal();
                             int awayGoal = m.getAwayTeamGoal();
                             if (homeGoal - awayGoal > 0) {
-                                forHome[i] = -1;
-                            } else if (homeGoal - awayGoal < 0) {
-                                forHome[i] = 1;
-                            } else {
                                 forHome[i] = 0;
+                            } else if (homeGoal - awayGoal < 0) {
+                                forHome[i] = 3;
+                            } else {
+                                forHome[i] = 1;
                             }
                         }
                         if (m.getHomeTeamApiId().equals(awayId)) {
                             int homeGoal = m.getHomeTeamGoal();
                             int awayGoal = m.getAwayTeamGoal();
                             if (homeGoal - awayGoal > 0) {
-                                forAway[i] = 1;
+                                forAway[i] = 3;
                             } else if (homeGoal - awayGoal < 0) {
-                                forAway[i] = -1;
-                            } else {
                                 forAway[i] = 0;
+                            } else {
+                                forAway[i] = 1;
                             }
                         } else if (m.getAwayTeamApiId().equals(awayId)) {
                             int homeGoal = m.getHomeTeamGoal();
                             int awayGoal = m.getAwayTeamGoal();
                             if (homeGoal - awayGoal > 0) {
-                                forAway[i] = -1;
-                            } else if (homeGoal - awayGoal < 0) {
-                                forAway[i] = 1;
-                            } else {
                                 forAway[i] = 0;
+                            } else if (homeGoal - awayGoal < 0) {
+                                forAway[i] = 3;
+                            } else {
+                                forAway[i] = 1;
                             }
                         }
                     }
@@ -151,9 +151,7 @@ public class RecentProfile {
         }
         int recentPoint = 0;
         for (int i = 0; i < result.length; i++) {
-            int j = result[i];
-            int k = Math.abs(j*2) + 1;
-            recentPoint += k;            
+            recentPoint += result[i];
         }
         if(exp<4) {//For those who are targeting champion
             if(recentPoint>9) {
@@ -169,27 +167,27 @@ public class RecentProfile {
             if (recentPoint > 7) {
                 return DEDICATED;
             }
-            if (recentPoint < 4) {
+            if (recentPoint < 5) {
                 return LOST;
             }
             return NORMAL;
         }
         
         if (exp < 13) {//For those who are considered to be mid-class team
-            if (recentPoint > 5) {
+            if (recentPoint > 6) {
                 return DEDICATED;
             }
-            if (recentPoint < 3) {
+            if (recentPoint < 4) {
                 return LOST;
             }
             return NORMAL;
         }
         
         if (exp > 12) {//For those who are strieving to stay
-            if (recentPoint > 4) {
+            if (recentPoint > 5) {
                 return DEDICATED;
             }
-            if (recentPoint < 2) {
+            if (recentPoint < 3) {
                 return LOST;
             }
             return NORMAL;
