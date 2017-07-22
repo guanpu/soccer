@@ -25,7 +25,6 @@ public class MyBayes {
     private BayesNet bn;
     private Filter filter2;
     private Filter filter3;
-    private Instances localInstances;
     private static final String NETWORK_STRUCTURE_PATH = "F:\\codes\\workspace\\basian-network\\models\\bif.xml";
     public MyBayes(ModelForBN loader, BayesNet bn) {
         this.loader = loader;
@@ -71,11 +70,8 @@ public class MyBayes {
         discretize.setInputFormat(data);
         this.filter3=discretize;
         data = Filter.useFilter(data, discretize);
-        
-        localInstances = data;
-        
+
         bn.buildClassifier(data);
-//        System.out.println(bn.toXMLBIF03());
     }
     
     public double [] classify(double [] values) throws Exception {
@@ -94,30 +90,5 @@ public class MyBayes {
         return bn.distributionForInstance(inst);
                 
     }
-    public void totalTest() throws Exception {
-        int j = 0;
-        int z = localInstances.size();
-        for (int i = 0; i < z; i++) {
-            Instance instance = localInstances.get(i);
-            double[] result = bn.distributionForInstance(instance);
-            double classval = instance.classValue();
-            if (getAbCorr(result, classval)) {
-                j++;
-            } else {
-                System.out.printf("%f, %f, %f, %f \n", result[0], result[1], result[2], classval);
-            }
-        }
-        double ratio = j / (z * 1.0);
-        System.out.println(ratio);
-    }
 
-    public boolean getAbCorr(double[] result, Double classval) {
-        double myPos = StatUtils.max(result);
-        return result[classval.intValue()] == myPos;
-    }
-
-    public static void main(String[] args) throws Exception {
-        MyBayes mb = new MyBayes();
-        mb.totalTest();
-    }
 }
