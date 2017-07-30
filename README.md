@@ -2,25 +2,9 @@ Inspired by [this project in kaggle](https://www.kaggle.com/airback/d/hugomathie
 
 Use the same database, but different model&learning schema try to achieve the same goal.
 
-Plan:
-
-1. Use javaml to classify the match from data.
-2. Get the performance of a training data.
-3. Classify the match with multi-classifier(labels) as enum
-4. Labels include 
-  a. Win,Draw,Defeat
-  b. WinAsExpected, DefeatAsExpected, DrawAsExpected, WinAsUnExpected, DefeatAsUnExpected, DrawAsUnExpected
-
-````
-Dataset data = FileHandler.loadDataset(new File("devtools/data/iris.data"), 4, ",");
-Classifier knn = new KNearestNeighbors(5);
-knn.buildClassifier(data);
-//Object predictedClassValue = knn.classify(inst);
-````
-
 Architecture:
 
-1. A JAVA trained JavaMl core with Mysql data
+1. A JAVA trained weka core with Mysql data
 2. A Nodejs odd/lineup fetcher
 3. A nodejs communication module to trigger betting strategy
 4. A Java messaging module to notify the customer(subscriber)
@@ -34,3 +18,17 @@ Recent TODO:
 + remove attribute like "FC" in the team name
 + double valid name like 'athletic-club' vs 'athletic-bioble', need to manually check and repair this.
 + comparing with latin characters against English characters, like ...
+
+$ node index.js
+[2017-07-23 19:34:24.713] [ERROR] [default] - TypeError: Cannot read property 'trim' of undefined
+    at Object.$.each (C:\Users\pguan\PlayGround\soccer\nodejs\libs\playerFetcher.js:36:68)
+    at initialize.exports.each (C:\Users\pguan\PlayGround\soccer\nodejs\node_modules\cheerio\lib\api\traversing.js:300:24)
+    at IncomingMessage.response.on.e (C:\Users\pguan\PlayGround\soccer\nodejs\libs\playerFetcher.js:31:48)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:185:7)
+    at endReadableNT (_stream_readable.js:974:12)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+[2017-07-23 19:34:24.724] [INFO] [default] - aboutToClose
+Child closeing
+Main closing

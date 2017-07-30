@@ -3,6 +3,7 @@
  */
 const schedule = require("node-schedule");
 const oddFetcher = require("./libs/oddFetcher");
+const playerFetcher = require("./libs/playerFetcher");
 const lineupFetcher = require("./libs/lineupFetcher");
 const _ = require("underscore");
 const child_process = require("child_process");
@@ -17,16 +18,18 @@ function fetchOdd() {
 }
 
 /**
- *
+ * Fetch the first lineup of hometeam, if the corresponding awayteam is right and the state is confirmed, then return.
+ * Else, it's recognized as error and return.
  * @param matchId
  */
 function fetchLineup(match) {
     lineupFetcher.getLineUp(match.homeTeam, match.awayTeam,match.tstamp).then((resultLineUp)=>{
         emit(2,resultLineUp);
-        setTimeout(()=>{worker.send("terminate");},5000);
+        // setTimeout(()=>{worker.send("terminate");},5000);
         //TODO: uncomment this when test over
-        //removeLineupSchedule(match.matchId);
+        removeLineupSchedule(match.matchId);
     }).catch((e)=>{
+        logger.error(e);
         logger.info(`No confirmed lineup data found for the specific match ${match.matchId}, will try later`);
     });
 }
@@ -163,6 +166,9 @@ function emit(type, payload) {
 function run() {
     //Run every day to fetch new upcoming matches.
     schedule.scheduleJob("5 1 */1 * *", fetchOdd);
+    
+    //TODO: uncomment this after test. Update player database every Wednesday
+    //schedule.scheduledJob("1 1 * * 3", updatePlayer);
 }
 process.on("uncaughtException", (err)=>{
     worker.send("terminate");
@@ -172,9 +178,11 @@ process.on("exit",()=>{
    console.log("Main closing");
 });
 // run();
-fetchLineup({
-   homeTeam: "malaga",
-   awayTeam: "barcelona",
-    tstamp: 1491705900,
-    matchId: 12
-});
+playerFetcher.getPlayer(1,0).then((data)=>{
+    logger.info(data);
+    emit(5,data);
+    setTimeout(()=>{worker.send("terminate");},10000);  
+}).catch((e)=>{
+    logger.error(e);
+    worker.send("terminate");
+})

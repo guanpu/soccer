@@ -40,7 +40,7 @@ function getLineUp(homeTeam, awayTeam, dueDate) {
                     //pickup the right div
                     let theDiv = $("div.pagination").next("div");
                     if (theDiv.find("h2>a").text().indexOf(teamName[awayName]) > 0 && theDiv.find("h2 span").text() == "Confirmed") {
-                        if (theDiv.find("div.pitch-header").text().indexOf(str) > 0) {
+                        //if (theDiv.find("div.pitch-header").text().indexOf(str) > 0) {
                             theDiv.find("div.home").children().each(function (index, element) {
                                 let player = {
                                     no: $(element).find("div.player-no").text(),
@@ -59,7 +59,7 @@ function getLineUp(homeTeam, awayTeam, dueDate) {
                                 homePlayers: homePlayers,
                                 awayPlayers: awayPlayers
                             });
-                        }
+                        //}
                     }
                     rej(new Error("Not found the correct match"));
                 } catch (e) {
